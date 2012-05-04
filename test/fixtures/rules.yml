@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  rule_id: 
+  sql_query: MyString
+  syntax_msg: MyString
+
+two:
+  rule_id: 
+  sql_query: MyString
+  syntax_msg: MyString

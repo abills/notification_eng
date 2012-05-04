@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  subscription_id: MyString
+  rule_id: MyString
+  use_business_hrs: 1
+  rss_feed_add: MyString
+
+two:
+  subscription_id: MyString
+  rule_id: MyString
+  use_business_hrs: 1
+  rss_feed_add: MyString

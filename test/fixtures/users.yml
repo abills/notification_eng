@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  username: MyString
+  password: MyString
+  mobile_phone_no: MyString
+  country_iso: MyString
+  business_hrs_start: 1
+  business_hrs_end: 1
+  business_days: 1
+  email: MyString
+  boxcar_id: MyString
+  external: 1
+  use_mobile_ph_flag: 1
+  use_email_flag: 1
+  use_im_flag: 1
+  use_boxcar_flag: 1
+
+two:
+  username: MyString
+  password: MyString
+  mobile_phone_no: MyString
+  country_iso: MyString
+  business_hrs_start: 1
+  business_hrs_end: 1
+  business_days: 1
+  email: MyString
+  boxcar_id: MyString
+  external: 1
+  use_mobile_ph_flag: 1
+  use_email_flag: 1
+  use_im_flag: 1
+  use_boxcar_flag: 1
