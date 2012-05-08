@@ -2,10 +2,10 @@
 
 <table>
   <tr>
-    <th>Country Code</th>
-    <th>Username</th>
+    <th>Country</th>
+    <th>Employee ID</th>
     <th>Email</th>
-    <th>External Flag</th>
+    <th>User Type</th>
   </tr>
 
 <% @users.each do |user| %>
@@ -13,9 +13,12 @@
     <td><%= user.country_iso %></td>
     <td><%= user.username %></td>
     <td><%= user.email %></td>
-    <td><%= user.external %></td>
-  </tr>
-  <tr>
+    <td>
+    <% if user.external == '1' %>
+        External
+    <% else %>
+        Employee
+    <% end %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
