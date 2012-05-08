@@ -1,0 +1,46 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Country Code</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Use Email Flag</th>
+    <th>Use IM Flag</th>
+    <th>Mobile Phone</th>
+    <th>Use Mobile Phone Flag</th>
+    <th>Boxcar ID</th>
+    <th>Use Boxcar ID Flag</th>
+    <th>Business Days</th>
+    <th>Business Start</th>
+    <th>Business End</th>
+    <th>External Flag</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.country_iso %></td>
+    <td><%= user.username %></td>
+    <td><%= user.email %></td>
+    <td><%= user.use_email_flag %></td>
+    <td><%= user.use_im_flag %></td>
+    <td><%= user.mobile_phone_no %></td>
+    <td><%= user.use_mobile_ph_flag %></td>
+    <td><%= user.boxcar_id %></td>
+    <td><%= user.use_boxcar_flag %></td>
+    <td><%= user.business_days %></td>
+    <td><%= user.business_hrs_start %></td>
+    <td><%= user.business_hrs_end %></td>
+    <td><%= user.external %></td>
+  </tr>
+  <tr>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>
