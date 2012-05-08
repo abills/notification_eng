@@ -1,6 +1,7 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
-    <div id="error_explanation">
+        <div id="error_explanation" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+             xmlns="http://www.w3.org/1999/html">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
@@ -11,6 +12,58 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <b>User Type</b>
+    <%= f.radio_button :external, "0" %> Employee
+    <%= f.radio_button :external, "1" %> External User
+  </div>
+  <br>
+  <div class="field">
+    <b><%= f.label :country_iso %></b>
+    <%=  f.select :country_iso, [['Australia','AUS'],['United States','USA'],['Chile','CHL'],['Malaysia','MAL']] %>
+  </div>
+  <div class="field">
+    <b><%= f.label :username %></b>
+    <%= f.text_field :username %>
+    <b><%= f.label :password %></b>
+    <%= f.text_field :password %>
+  </div>
+  <br>
+  <div class="field">
+    <b><%=	 f.label :email %></b>
+    <%=  f.text_field :email %>
+    <%= f.radio_button :use_email_flag, "1" %> Email
+    <%= f.radio_button :use_email_flag, "0" %> No Email
+  </div>
+  <div class="field">
+    <b>Instant Messenger/Office Communicator</b>
+    <%= f.radio_button :use_im_flag, "1" %> OCS
+    <%= f.radio_button :use_im_flag, "0" %> No OCS
+  </div>
+  <br>
+  <div class="field">
+    <b><%=	 f.label :boxcar_id %></b>
+    <%=  f.text_field :boxcar_id %>
+    <%= f.radio_button :use_boxcar_flag, "1" %> Boxcar
+    <%= f.radio_button :use_boxcar_flag, "0" %> No Boxcar
+  </div>
+  <div class="field">
+    <b><%=	 f.label :mobile_phone_no %></b>
+    <%=  f.text_field :mobile_phone_no %>
+    <%= f.radio_button :use_mobile_ph_flag, "1" %> SMS
+    <%= f.radio_button :use_mobile_ph_flag, "0" %> No SMS
+  </div>
+  <br>
+  <div class="field">
+    <b>Business Days</b>
+    <%= f.radio_button :business_days, "5" %> Mon-Fri
+    <%= f.radio_button :business_days, "7" %> 7 Days
+    <br>
+    <b><%= f.label :business_hrs_start %></b>
+    <%= f.select :business_hrs_start, [['0000','0'],['0100','1'],['0200','2'],['0300','3'],['0400','4'],['0500','5'],['0600','6'],['0700','7'],['0800','8'],['0900','9'],['1000','10'],['1100','11'],['1200','12'],['1300','13'],['1400','14'],['1500','15'],['1600','16'],['1700','17'],['1800','18'],['1900','19'],['2000','20'],['2100','21'],['2200','22'],['2300','23'], ] %>
+    <b><%= f.label :business_hrs_end %></b>
+    <%= f.select :business_hrs_end, [['0000','0'],['0100','1'],['0200','2'],['0300','3'],['0400','4'],['0500','5'],['0600','6'],['0700','7'],['0800','8'],['0900','9'],['1000','10'],['1100','11'],['1200','12'],['1300','13'],['1400','14'],['1500','15'],['1600','16'],['1700','17'],['1800','18'],['1900','19'],['2000','20'],['2100','21'],['2200','22'],['2300','23'], ] %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
