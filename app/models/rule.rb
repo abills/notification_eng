@@ -1,3 +1,3 @@
 class Rule < ActiveRecord::Base
-  belongs_to :Subscriptions
+  belongs_to :subscription
 end

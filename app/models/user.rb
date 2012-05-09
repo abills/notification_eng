@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  has_many :user_subscriptionses
+  has_many :user_subscriptions
 end
