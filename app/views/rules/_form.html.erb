@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <b><%= f.label :call_type %></b>
-    <%= f.select :call_type, [['All Types','*'],['INC - Incident','INC'],['SVR - Service Request','SVR']] %>
+    <%= f.select :call_type, [['All Types','NULL'],['INC - Incident','INC'],['SVR - Service Request','SVR']] %>
   </div>
   <div class="field">
     <b><%= f.label :priority %></b>
-    <%= f.select :priority, [['All','*'],['P1','1'],['P2','2'],['P3','3'],['P4','4'],['P5','5']] %>
+    <%= f.select :priority, [['All','NULL'],['P1','1'],['P2','2'],['P3','3'],['P4','4'],['P5','5']] %>
   </div>
   <div class="field">
     <b><%= f.label :group_id %></b>
@@ -38,7 +38,7 @@
   <h3>Rule</h3>
   <div class="field">
     <b>Milestone</b>
-    <%= f.select :milestone_operator, [['Not Used','NULL'],['Equals','=='],['Not Equals','!='],['Count','Count']] %>
+    <%= f.select :milestone_operator, [['Not Used','NULL'],['Equals','='],['Count','count']] %>
     <%= f.text_field :milestone_value %>
     Milestone Duration
     <%= f.text_field :milestone_time_value %>
@@ -52,18 +52,18 @@
   </div>
   <div class="field">
     <b>CTC ID</b>
-    <%= f.select :ctc_id_operator, [['Not Used','NULL'],['Equals','=='],['Not Equals','!=']] %>
+    <%= f.select :ctc_id_operator, [['Not Used','NULL'],['Equals','='],['Not Equals','!=']] %>
     <%= f.text_field :ctc_id_value %>
   </div>
   <div class="field">
     <b>Other text</b>
-    <%= f.select :other_text_operator, [['Not Used','NULL'],['Greater Than','>'],['Less Than','<'],['Equals','=='],['Not Equals','!='],['Count','Count']] %>
+    <%= f.select :other_text_operator, [['Not Used','NULL'],['Greater Than','>'],['Less Than','<'],['Equals','='],['Not Equals','!='],['Count','Count']] %>
     <%= f.text_field :other_text_value %>
   </div>
   <h3>Query & Output</h3>
   <div class="field">
     <b><%= f.label :sql_query %></b>
-    <%= f.text_field :sql_query %>
+    <%= build_sql_query %>
   </div>
   <div class="field">
     <b><%= f.label :syntax_msg %></b>
