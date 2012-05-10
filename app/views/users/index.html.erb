@@ -14,11 +14,12 @@
     <td><%= user.username %></td>
     <td><%= user.email %></td>
     <td>
-    <% if user.external == '1' %>
-        External
-    <% else %>
-        Employee
-    <% end %></td>
+    <% if user.external == 0 %>Employee
+    <% elsif user.external == 1 %>External
+    <% elsif user.external == 2 %>Administrator
+    <% else %>Error
+    <% end %>
+    </td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>

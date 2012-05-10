@@ -16,6 +16,7 @@
     <b>User Type</b>
     <%= f.radio_button :external, "0" %> Employee
     <%= f.radio_button :external, "1" %> External User
+    <%= f.radio_button :external, "2" %> Administrator
   </div>
   <br>
   <div class="field">
@@ -58,6 +59,7 @@
     <b>Business Days</b>
     <%= f.radio_button :business_days, "5" %> Mon-Fri
     <%= f.radio_button :business_days, "7" %> 7 Days
+    <%= f.radio_button :business_days, "0" %> Disable Notifications
     <br>
     <b><%= f.label :business_hrs_start %></b>
     <%= f.select :business_hrs_start, [['0000','0'],['0100','1'],['0200','2'],['0300','3'],['0400','4'],['0500','5'],['0600','6'],['0700','7'],['0800','8'],['0900','9'],['1000','10'],['1100','11'],['1200','12'],['1300','13'],['1400','14'],['1500','15'],['1600','16'],['1700','17'],['1800','18'],['1900','19'],['2000','20'],['2100','21'],['2200','22'],['2300','23'], ] %>
