@@ -10,6 +10,66 @@
       </ul>
     </div>
   <% end %>
+  <h3>Limits</h3>
+  <div class="field">
+    <b>Source System</b>
+    <%= f.radio_button :source, "remedy" %> Remedy
+  </div>
+  <div class="field">
+    <b><%= f.label :cust_no %></b>
+    <%= f.text_field :cust_no %>
+  </div>
+  <div class="field">
+    <b><%= f.label :call_type %></b>
+    <%= f.select :call_type, [['All Types','*'],['INC - Incident','INC'],['SVR - Service Request','SVR']] %>
+  </div>
+  <div class="field">
+    <b><%= f.label :priority %></b>
+    <%= f.select :priority, [['All','*'],['P1','1'],['P2','2'],['P3','3'],['P4','4'],['P5','5']] %>
+  </div>
+  <div class="field">
+    <b><%= f.label :group_id %></b>
+    <%= f.text_field :group_id %>
+  </div>
+  <div class="field">
+    <b><%= f.label :entitlement_code %></b>
+    <%= f.text_field :entitlement_code %>
+  </div>
+  <h3>Rule</h3>
+  <div class="field">
+    <b>Milestone</b>
+    <%= f.select :milestone_operator, [['Not Used','NULL'],['Equals','=='],['Not Equals','!='],['Count','Count']] %>
+    <%= f.text_field :milestone_value %>
+    Milestone Duration
+    <%= f.text_field :milestone_time_value %>
+    <%= f.select :milestone_time_value_denomination, [['Not Used','NULL'],['Hours','H'],['Days','D'],['Perc %','%']] %>
+  </div>
+  <div class="field">
+    <b>Time to Target</b>
+    <%= f.select :target_time_operator, [['Not Used','NULL'],['Less Than','<']] %>
+    <%= f.text_field :target_time_value %>
+    <%= f.select :target_time_value_denomination, [['Not Used','NULL'],['Hours','H'],['Days','D'],['Perc %','%']] %>
+  </div>
+  <div class="field">
+    <b>CTC ID</b>
+    <%= f.select :ctc_id_operator, [['Not Used','NULL'],['Equals','=='],['Not Equals','!=']] %>
+    <%= f.text_field :ctc_id_value %>
+  </div>
+  <div class="field">
+    <b>Other text</b>
+    <%= f.select :other_text_operator, [['Not Used','NULL'],['Greater Than','>'],['Less Than','<'],['Equals','=='],['Not Equals','!='],['Count','Count']] %>
+    <%= f.text_field :other_text_value %>
+  </div>
+  <h3>Query & Output</h3>
+  <div class="field">
+    <b><%= f.label :sql_query %></b>
+    <%= f.text_field :sql_query %>
+  </div>
+  <div class="field">
+    <b><%= f.label :syntax_msg %></b>
+    <%= f.text_field :syntax_msg %>
+  </div>
+  <br>
 
   <div class="actions">
     <%= f.submit %>

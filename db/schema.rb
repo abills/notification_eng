@@ -11,21 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120510010051) do
+ActiveRecord::Schema.define(:version => 20120504044444) do
 
   create_table "rules", :force => true do |t|
     t.integer  "rule_id_id"
     t.string   "sql_query"
     t.string   "syntax_msg"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.string   "group_id"
     t.string   "source"
     t.string   "cust_no"
     t.integer  "priority"
     t.string   "entitlement_code"
     t.string   "call_type"
-    t.string   "other_text"
-    t.string   "ctc_id"
+    t.string   "other_text_operator"
+    t.string   "other_text_value"
+    t.string   "ctc_id_operator"
+    t.string   "ctc_id_value"
+    t.string   "milestone_operator"
+    t.string   "milestone_value"
+    t.float    "milestone_time_value"
+    t.string   "milestone_time_value_denomination"
+    t.string   "target_time_operator"
+    t.float    "target_time_value"
+    t.string   "target_time_value_denomination"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "subscriptions", :force => true do |t|
