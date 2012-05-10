@@ -1,4 +1,4 @@
-class AddColumnNameToRules < ActiveRecord::Migration
+class AddColumnToRules < ActiveRecord::Migration
   def change
     add_column :rules, :source, :string
 

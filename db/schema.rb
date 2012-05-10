@@ -11,17 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120510005221) do
-
-  create_table "add_column_name_to_rules", :force => true do |t|
-    t.string   "source"
-    t.string   "cust_no"
-    t.integer  "priority"
-    t.string   "entitlement_code"
-    t.string   "call_type"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120510010051) do
 
   create_table "rules", :force => true do |t|
     t.integer  "rule_id_id"
@@ -29,7 +19,6 @@ ActiveRecord::Schema.define(:version => 20120510005221) do
     t.string   "syntax_msg"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.string   "group_id"
     t.string   "source"
     t.string   "cust_no"
     t.integer  "priority"
