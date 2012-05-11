@@ -1,6 +1,7 @@
 module RulesHelper
   def build_sql_query
     @rule = Rule.find(params[:id])
+
     db_name = "db_name"
     table_name = "table_name"
 
@@ -30,20 +31,41 @@ module RulesHelper
     if not @rule.entitlement_code.blank?
       temp_sql.concat(" and entitlement_code =\"#{@rule.entitlement_code}\"")
     end
-    #add where for rule
-    temp_sql.concat(" where ")
+    #add milestone rule condition
     if @rule.milestone_operator != "NULL"
-      #add case statement
       case @rule.milestone_operator
         when "="
-          temp_sql.concat(" milestone =\"#{@rule.milestone_value}\"")
-          if @rule.milestone_time_value != "NULL"
-            temp_sql.concat(" and milestone_timestamp >\"#{@rule.milestone_time_value}#{@rule.milestone_time_value_denomination}\"")
+          temp_sql.concat(" and milestone #{@rule.milestone_operator}\"#{@rule.milestone_value}\"")
+          #if milestone duration needs to be used
+          if @rule.milestone_time_value_denomination != "NULL"
+            temp_sql.concat(" and milestone_timestamp >#{@rule.milestone_time_value}#{@rule.milestone_time_value_denomination}")
           end
         when "count"
           temp_sql.concat(" !!!add count for milestones!!! ")
       end
-      #ensure duration is only able to be used through equals
+      #add target time operators
+      if @rule.target_time_operator != "NULL" and @rule.target_time_value_denomination != "NULL"
+        temp_sql.concat(" and target_time #{@rule.target_time_operator}#{@rule.target_time_value}#{@rule.target_time_value_denomination}")
+      end
+      #add CTC rule condition
+      if @rule.ctc_id_operator != "NULL"
+        temp_sql.concat(" and ctc_id #{@rule.ctc_id_operator}\"#{@rule.ctc_id_value}\"")
+      end
+      #add other text rule condition
+      if @rule.other_text_operator != "NULL"
+        case @rule.other_text_operator
+          when "="
+            temp_sql.concat(" and other_text #{@rule.other_text_operator}\"#{@rule.other_text_value}\"")
+          when "!="
+            temp_sql.concat(" and other_text #{@rule.other_text_operator}\"#{@rule.other_text_value}\"")
+          when ">"
+            temp_sql.concat(" and other_text #{@rule.other_text_operator}\"#{@rule.other_text_value}\"")
+          when "<"
+            temp_sql.concat(" and other_text #{@rule.other_text_operator}\"#{@rule.other_text_value}\"")
+          when "count"
+            temp_sql.concat(" !!!add count for other text!!! ")
+        end
+      end
     end
 
     return temp_sql

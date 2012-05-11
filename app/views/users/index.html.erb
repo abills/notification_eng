@@ -1,5 +1,8 @@
 <h1>Listing users</h1>
-
+<% if @users.empty? %>
+    No Users Found
+    <br>
+<% else %>
 <table>
   <tr>
     <th>Country</th>
@@ -26,6 +29,7 @@
   </tr>
 <% end %>
 </table>
+<% end %>
 
 <br />
 
