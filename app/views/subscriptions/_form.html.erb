@@ -11,6 +11,13 @@
     </div>
   <% end %>
 
+  <% @subscription.rules.each do |rule| %>
+        <div id="rule">
+          <% h rule.syntax_message %>
+        </div>
+  <% end %>
+  <%= link_to "add rule", :action => 'new_subscription_rule', :id => @subscription.id %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
