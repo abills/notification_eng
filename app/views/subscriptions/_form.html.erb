@@ -16,7 +16,7 @@
           <% h rule.syntax_message %>
         </div>
   <% end %>
-  <%= link_to "add rule", :action => 'new_subscription_rule', :id => @subscription.id %>
+  <%= link_to "add rule", new_subscription_rule_url(:subscription.id) %>
 
   <div class="actions">
     <%= f.submit %>
