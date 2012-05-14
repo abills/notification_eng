@@ -41,10 +41,11 @@ ActiveRecord::Schema.define(:version => 20120504044444) do
   create_table "subscriptions", :force => true do |t|
     t.string   "subscription_id"
     t.string   "rule_id"
+    t.string   "subscription_description"
     t.integer  "use_business_hrs"
     t.string   "rss_feed_add"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "user_subscriptions", :force => true do |t|

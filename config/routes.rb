@@ -20,6 +20,7 @@ NotificationEng::Application.routes.draw do
     resources :rules
   end
 
+
   # Sample resource route with options:
   #   resources :products do
   #     member do

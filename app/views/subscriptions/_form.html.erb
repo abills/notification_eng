@@ -10,14 +10,27 @@
       </ul>
     </div>
   <% end %>
-
-  <% @subscription.rules.each do |rule| %>
-        <div id="rule">
-          <% h rule.syntax_message %>
-        </div>
-  <% end %>
-  <%= link_to "add rule", new_subscription_rule_url(:subscription.id) %>
-
+  <div class="field">
+    <b><%= f.label :subscription_description %></b>
+    <%= f.text_field :subscription_description %>
+  </div>
+  <div class="field">
+    <b>Use Business Hours per User Profile</b>
+    <%= f.radio_button :use_business_hrs, "1" %> Yes
+    <%= f.radio_button :use_business_hrs, "0" %> No
+  </div>
+  <br><b>List Rules</b><br>
+    <% if @subscription.rules.empty? %>
+        No Rules Defined <br>
+    <% else %>
+        <% @subscription.rules.each do |rule| %>
+            <div id="rule">
+              <% h rule.syntax_message %>
+            </div>
+        <% end %>
+    <% end %>
+  <%= link_to "Add New Rule", new_subscription_rule_url(:subscription, :rule) %>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>
